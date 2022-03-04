@@ -27,6 +27,6 @@ find $DIR -maxdepth 1 -type f -iname "*.mp4" -print0 | while IFS= read -r -d $'\
 
 done
 
-cp -Rf "playlist-*" /home/clerge/Vidéos/
+cp -Rf "playlist-*" /PATH/TO/YOUR/FILES
 
 exit 0
