@@ -1,11 +1,26 @@
 #!/bin/bash
-# CLG - 09-02-2022 SCRIPT SORT FILES ON A SPECIFIC FOLDERS
+# CLG - 16-03-2022 SCRIPT TO SORT UPLOADED MEDIA
 
 DIR=/PATH/TO/YOUR/FILES
 
 echo "SCRIPT TO SORT FILES UPLOADED TO THE SERVER"
 echo "---------------------------------------------------------";
 date -Iseconds;
+
+ARCHIVE="$(find $DIR -maxdepth 1 -type f -name "*.zip" -print)"
+
+if [[ -n "$ARCHIVE" ]]
+then
+    echo "Archive found : " && ls -l $DIR*.zip
+    echo "Extracting..." && unzip $ARCHIVE $DIR
+    echo "---------------------------------------------------------";
+    echo "Archive extracted";
+    echo "---------------------------------------------------------";
+else
+    echo "---------------------------------------------------------";
+    echo "Found no archive";
+    echo "---------------------------------------------------------";
+fi
 
 VIDEOS="$(find $DIR -maxdepth 1 -type f -name "*.mp4" -print)"
 
@@ -40,7 +55,7 @@ IMAGES="$(find $DIR -maxdepth 1 -type f -name "*.png" -or -name "*.jpg"-print)"
 
 if [[ -n "$IMAGES" ]]
 then
-    echo "Images files found : " && ls -l $DIR*.png
+    echo "Images files found : " && ls -l $DIR*.mp3
     echo "Moving files..." && mv $IMAGES $DIR"img/"
     echo "---------------------------------------------------------";
     echo "Images with ext .png or .jpg moved to dir. img/";
