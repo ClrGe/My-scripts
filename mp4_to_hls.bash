@@ -21,6 +21,10 @@ if [[ -n "$VIDEOS" ]]
             #CREATE MASTER PLAYLIST TO ORCHESTRATE THE STREAM ACCORDING TO AVAILABLE BANDWIDTH
             touch ${DIR}playlist-${basename}/master.m3u8
             printf '#EXTM3U\n#EXT-X-STREAM-INF:BANDWIDTH=375000,RESOLUTION=640x360\n360_out.m3u8\n#EXT-X-STREAM-INF:BANDWIDTH=750000,RESOLUTION=800x480\n480_out.m3u8\n#EXT-X-STREAM-INF:BANDWIDTH=2000000,RESOLUTION=1280x720\n720_out.m3u8\n#EXT-X-STREAM-INF:BANDWIDTH=3500000,RESOLUTION=1920x1080\n1080_out.m3u8' > playlist-${basename}/master.m3u8
+    
+            touch log-${basename}-${NOW}.txt        
+            2>&1 | tee -a log-${basename}-${NOW}.txt
+
         done
     else
         echo "---------------------------------------------------------";
