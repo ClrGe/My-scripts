@@ -1,5 +1,5 @@
 #!/bin/bash
-# CLG - 16-03-2022 VIDEO PROCESSING SCRIPT
+# CLG - 25-04-2022 VIDEO PROCESSING SCRIPT
 
 DIR=/PATH/TO/YOUR/FILES/
 VIDEOS="$(find $DIR -maxdepth 1 -type f -name "*.mp4" -print)"
