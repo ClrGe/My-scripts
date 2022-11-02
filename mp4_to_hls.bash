@@ -1,6 +1,6 @@
 #!/bin/bash
 # CLG - 25-04-2022 VIDEO PROCESSING SCRIPT
-
+# Automatic processing of video files to produce HLS playlists in 4 resolutions (played according to available bandwidth)
 DIR=/PATH/TO/YOUR/FILES/
 VIDEOS="$(find $DIR -maxdepth 1 -type f -name "*.mp4" -print)"
 
